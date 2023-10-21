@@ -1,2 +1,4 @@
-# web-330
-Repository for Web330 Enterprise JavaScript II
+# WEB 330 Enterprise JavaScript II
+## Contributors
++ Victor Soto
++ Richard Krasso
