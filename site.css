@@ -1,0 +1,79 @@
+#container {
+    margin-top: 58px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* added CSS style to position the button accordingly - without it, it won't match the assignment's exhibit examples */
+#icon-mode {
+    position: absolute;
+    top: 5px;
+    right: 5.5%;
+    font-size: 28px;
+}
+
+#icon-mode:hover {
+    cursor: pointer;
+}
+
+#icon-text {
+    padding-left: 10px;
+}
+
+.pull-right {
+    float: right;
+
+}
+
+.app-header {
+    text-align: center;
+    font-weight: 400;
+}
+
+.rtnhome-anchor {
+    margin-top: 25px;
+}
+
+#return-home {
+    color: #4F3674;
+    text-decoration: none;
+}
+
+#return-home:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+}
+
+#return-home:visited {
+    color: #3c275a;
+}
+
+.form {
+    display: inline-grid;
+    grid-template-columns: auto;
+
+}
+
+.form-field {
+    padding: 20px;
+}
+
+.full-width {}
+
+
+
+.assign-container {
+    padding: 10px;
+
+}
+
+.assign-content {
+    width: 600px;
+    margin: 3% auto 0;
+
+}
+
+.assign-results-text {
+    text-align: center;
+    font-size: 28px;
+}
