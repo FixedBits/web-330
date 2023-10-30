@@ -1,0 +1,46 @@
+/*Applied color to card-title font to match assignment*/
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    color: #4f3674;
+    font-weight: 400;
+}
+
+/*Adjusted results font-size and text alignment to match assignment*/
+.card-content {
+    padding: 2px 16px;
+    font-size: 18px;
+    text-align: left;
+}
+
+/*Adjusted button colors to match assignment*/
+.btn-primary {
+    background-color: #4f3674;
+    color: #fff;
+}
+
+/*Adjusted button hover colors to match assignment*/
+.btn-primary:hover {
+    background-color: #d6a800;
+    color: #4f3674;
+}
+
+/*Adjusted button width to match assignment*/
+.btn {
+    width: 250px;
+    border-radius: 5px;
+
+}
+
+/*removed border to match assignment style*/
+h1 {
+    padding: 10px;
+    border: none;
+}
+
+/*Added style to manipulate the "matching" or "non-matching" palindrome sentences*/
+.resultLine-align {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+}

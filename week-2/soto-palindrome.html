@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/theme.css">
+        <link rel="stylesheet" type="text/css" href="/site.css">
+        <link rel="stylesheet" type="text/css" href="/week-2/soto-palindrome.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+        <title>WEB 330 – Enterprise JavaScript II.</title>
+
+    </head>
+
+    <!--
+    Assignment: Assignment 2 – Palindrome App
+    Author: Victor Soto
+    Date: 10/29/2023
+    Sources: 
+    - JavaScript Functions: https://www.w3schools.com/js/js_functions.asp 
+    - HTML <u> Tag: https://www.w3schools.com/tags/tag_u.asp
+    
+-->
+
+    <body>
+        <div class="assign-container">
+            <!--"1. h1 with the CSS class app-header and a text value of “Welcome to the Palindrome App!”-->
+            <h1 class="app-header"> Welcome to the Palindrome App!</h1>
+            <div class="assign-content">
+                <div class="card">
+                    <div class="card-title">
+                        <!--2. card-title with a text value of “Palindrome Checker” -->
+                        Palindrome Checker
+                    </div>
+                    <div class="card-content">
+                        <div class="form">
+
+                            <div class="form-field">
+                                <!-- 3. form-field with a text value of “Phrase value:”-->
+                                <label for="txtPhrase">Phrase value:</label>
+                                <!-- 4. input field with an id txtPhrase --->
+                                <input type="text" class="input" id="txtPhrase" name="phraseValue">
+                            </div>
+                            <div class="form-field">
+                                <!-- 5. form-field button with an id of btnCheckPhrase -->
+                                <!-- Added button value of "Check Phrase" -->
+                                <button class="btn btn-primary full-width" id="btnCheckPhrase">Check Phrase</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="rtnhome-anchor">
+                    <!-- Return to Home link -->
+                    <a id="return-home" href="../index.html">Return</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="assign-container">
+            <div class="assign-content">
+                <div class="card">
+                    <div class="card-title">
+                        <!-- 6. card title with a text value of “Palindrome Results”-->
+                        Palindrome Results
+                    </div>
+                    <div class="card-content assign-results-text">
+                        <!-- Results go here! -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+            // a. Create getTodaysDate function
+            function getTodaysDate() {
+                let today = new Date();
+                return today.toLocaleDateString("en-US");
+            }
+
+            // b. Create getLength function
+            function getLength(str) {
+                return str.length;
+            }
+
+            // c. Create reverse function
+            function reverse(str) {
+                return str.split('').reverse().join('');
+            }
+
+            // d. Create isPalindrome function
+            function isPalindrome(str) {
+                return str === reverse(str);
+            }
+
+            // e. Register an onclick event
+            document.getElementById("btnCheckPhrase").onclick = function () {
+                // 1. Capture the inputted phrase and assign it to a variable named txtPhrase
+                let txtPhrase = document.getElementById("txtPhrase").value;
+
+                // 2. Assign the “assign-results” div to a variable named assignResults
+                let assignResults = document.querySelector(".assign-results-text");
+
+                // 3. Create a variable named today and assign it the results from the getTodaysDate() function call
+                let today = getTodaysDate();
+
+                // 4. Create a variable named len and assign it the results from the getLength() function call
+                let len = getLength(txtPhrase);
+
+                // 5. Create a variable named reversedPhrase and assign it the results from the reverse() function call
+                let reversedPhrase = reverse(txtPhrase);
+
+                // 6. Create a string variable named header and build a string that matches the output in Exhibit A, item 7 (hint: use the variables you created in items 3 - 5 to build the string)
+                let header = `Date: ${today}<br>Original Phrase: ${txtPhrase} <br>Reversed Phrase: ${reversedPhrase}<br>Phrase Length: ${len}`;
+
+                // 7. Assign the header variable to the assign-results-header div using the innerHTML property. See Exhibit B
+                assignResults.innerHTML = header;
+
+                // 8 & 9. Check if the phrase is a palindrome and update assignResults accordingly
+                if (isPalindrome(txtPhrase.toLowerCase())) {
+                    assignResults.innerHTML += `<br><span class="resultLine-align"> ${txtPhrase} <b><u>is</u></b> a palindrome!</span>`; 
+                } else {
+                    assignResults.innerHTML += `<br><span class="resultLine-align">${txtPhrase} <b><u>is not</u></b> a palindrome!</span>`;
+                    
+                }
+            };
+        </script>
+
+    </body>
+
+</html>
