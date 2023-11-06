@@ -1,0 +1,72 @@
+/*
+============================================
+; Title:  restaurant.css
+; Author: Victor Soto
+; Date:   5 November 2023
+;===========================================
+*/
+/*Applied color to card-title font to match assignment*/
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    color: #4f3674;
+    font-weight: 400;
+}
+
+/*Adjusted results font-size and text alignment to match assignment*/
+.card-content {
+    padding: 2px 16px;
+    font-size: 18px;
+    text-align: left;
+}
+
+/*Adjusted button colors to match assignment*/
+.btn-primary {
+    background-color: #4f3674;
+    color: #fff;
+
+}
+
+/*Adjusted button hover colors to match assignment*/
+.btn-primary:hover {
+    background-color: #d6a800;
+    color: #4f3674;
+}
+
+/*Adjusted button width to match assignment*/
+.btn {
+    width: 250px;
+    border-radius: 5px;
+
+}
+
+/*removed border to match assignment style*/
+h1 {
+    padding: 10px;
+    border: none;
+}
+
+/*Added style*/
+.resultLine-align {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+}
+
+.card-category {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.card-category:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
+}
