@@ -5,7 +5,7 @@
 ; Date:   5 November 2023
 ;===========================================
 */
-  "use strict";
+
 import { Product } from "./product.js";
 
 export class Appetizer extends Product {

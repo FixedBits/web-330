@@ -6,7 +6,7 @@
 ;===========================================
 */
 
-  "use strict";
+
 import { Product } from "./product.js";
 
 export class Dessert extends Product {

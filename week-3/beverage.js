@@ -6,7 +6,7 @@
 ; Description: JavaScript class - Beverage
 ;===========================================
 */
-  "use strict";
+
 import { Product } from "./product.js";
 export class Beverage extends Product{
     constructor(name, price) {

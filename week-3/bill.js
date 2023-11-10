@@ -6,7 +6,7 @@
 ;===========================================
 */
 
-  "use strict";
+
 export class Bill {
     constructor() {
         this._beverages = [];

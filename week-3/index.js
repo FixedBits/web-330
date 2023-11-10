@@ -5,7 +5,7 @@
 ; Date:   5 November 2023
 ;===========================================
 */
-  "use strict";
+
 
 export * from "./appetizer.js";
 export * from "./beverage.js";
