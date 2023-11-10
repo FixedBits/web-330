@@ -5,6 +5,8 @@
 ; Date:   5 November 2023
 ;===========================================
 */
+
+  "use strict";
 export class Bill {
     constructor() {
         this._beverages = [];

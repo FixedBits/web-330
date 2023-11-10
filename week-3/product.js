@@ -6,6 +6,8 @@
 ; Description: JavaScript class - Product
 ;===========================================
 */
+
+  "use strict";
 export class Product{
     constructor(name, price) {
         this.name = name;

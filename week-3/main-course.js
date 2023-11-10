@@ -6,6 +6,7 @@
 ; Description: JavaScript class - Product
 ;===========================================
 */
+  "use strict";
 import { Product } from "./product.js";
 
 export class MainCourse extends Product {
