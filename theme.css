@@ -86,6 +86,9 @@ body.light-theme {
     --table-border-color: #ddd;
     --table-hover-background-color: #D6A800;
     --table-hover-color: #4F3674;
+
+    /* Additional styling that was needed to satisfy instructions on week-4 assignment*/
+    -h1-text-color: #000;
 }
 
 body.dark-theme {
@@ -107,13 +110,15 @@ body.dark-theme {
     --btn-hover-color: #fff;
     --input-border-color: #303030;
 
-    /* additional styling - per week-4 assignment instructions*/
-
+    /* Additional styling - per week-4 assignment instructions*/
     --table-header-background-color: #D176E1;
     --table-header-color: #fff;
     --table-border-color: #303030;
     --table-hover-background-color: #7D4787;
     --table-hover-color: #fff;
+
+    /* Additional styling that was needed to satisfy instructions on week-4 assignment*/
+    --h1-text-color: #fff;
 
 }
 
