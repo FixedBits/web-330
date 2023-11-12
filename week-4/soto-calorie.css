@@ -1,0 +1,101 @@
+/*
+============================================
+; Title:  calorie.css
+; Author: Victor Soto
+; Date:   11/12/2023
+;===========================================
+*/
+
+/*Adjusted button colors to match assignment*/
+.btn-primary {
+    background-color: #4f3674;
+    color: #fff;
+}
+
+/*Adjusted button hover colors to match assignment*/
+.btn-primary:hover {
+    background-color: #d6a800;
+    color: #4f3674;
+}
+
+/*Adjusted button width to match assignment & additional styling for clarity*/
+.btn {
+    width: 60%;
+    border-radius: 5px;
+    padding: 1.8%;
+
+}
+
+/*Adjusted to match assignment and clarity*/
+.input {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 3%;
+    width: 39%;
+    margin-left: 5px;
+
+}
+
+/*Add a CSS entry of #foodList*/
+/*Adjusted to match assignment*/
+#foodList {
+    float: right;
+    margin-bottom: 5px;
+    margin-right: 22px;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-right: 190PX;
+
+}
+
+/* Start of formatting for the table style**/
+.table {
+    border-collapse: collapse;
+    width: 25%;
+    margin-bottom: 30px;
+
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+
+
+}
+
+/* Added #000; for solid line to show */
+.table td,
+.table th {
+    border: 1px solid #000;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 12px;
+    font-weight: 400;
+    padding-bottom: 12px;
+
+}
+
+.table-hover tr:hover {
+    background-color: var(--table-hover-background-color);
+    color: var(--table-hover-color);
+    cursor: pointer;
+}
+
+/* End of formatting for the table style */
+
+
+/* Added style for Return link to appear white on dark-mode */
+body.dark-theme #return-home {
+    color: #fafafa;
+}
+
+/*removed border to match assignment style and applied added variable for light/dark mode instances*/
+h1 {
+    background-color: transparent;
+    border: none;
+    color: var(--h1-text-color);
+}
