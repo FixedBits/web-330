@@ -1,0 +1,62 @@
+/*
+============================================
+; Title:  soto-whatabook.css
+; Author: Victor Soto
+; Date: 12/03/2023
+============================================
+*/
+
+h1 {
+    border: none;
+}
+
+.card-title {
+    color: #4F3674;
+}
+
+/* Start of formatting for the table style**/
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4f3674;
+    color: white;
+    font-weight: 700;
+    padding-left: 8px;
+}
+
+/* Added color; for solid line to show */
+.table td,
+.table th {
+    border: 1px solid #d5d5d5;
+
+}
+
+.table td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+tr:hover {
+    background-color: #d6a800;
+    cursor: pointer;
+}
+
+/* End of formatting for the table style */
+
+/* Aligned UL (result) left */
+ul {
+    text-align: left;
+    font-size: 16px;
+}
+
+/* ISBN text color changed to match assignment exhibits */
+.isbn-link {
+    color: #4F3674;
+}
