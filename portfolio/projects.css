@@ -1,6 +1,48 @@
 #projects-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px;
     grid-gap: 20px;
+
+}
+
+
+.assign-container {
+    padding-bottom: 50px;
+}
+
+body {
+    padding-bottom: 50px;
+
+}
+
+.app-header {
+    color: #917A3A;
+}
+
+.card-title {
+    color: #917A3A;
+    font-size: 24px;
+}
+
+.bucket-list {
+    color: #917A3A;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.body-paragraphs {
+    color: #917A3A;
+    margin-left: 15%;
+    padding-right: 15%;
+    text-align: left;
+    font-weight: 200;
+}
+
+.card {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
 }
