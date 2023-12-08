@@ -46,3 +46,17 @@ body {
     padding-right: 15px;
 
 }
+
+p {
+    color: #917A3A;
+}
+
+.download-link {
+    text-align: center;
+    padding-left: 550px;
+    font-size: 18px;
+}
+
+.resume-text p {
+    color: black;
+}
