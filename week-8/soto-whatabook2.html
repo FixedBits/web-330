@@ -1,0 +1,192 @@
+<!--
+============================================
+; soto-whatabook2.html
+; Author: Victor Soto
+; Date: 12/10/2023
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../theme.css">
+        <link rel="stylesheet" type="text/css" href="../site.css">
+        <link rel="stylesheet" type="text/css" href="soto-whatabook2.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <title>WEB 330 – Enterprise JavaScript II.</title>
+    </head>
+
+    <body>
+        <div class="assign-container">
+            <!--h1 with a CSS class of app-header and a text value of “Welcome to the WhatABook, Part 2 App!”-->
+            <h1 class="app-header"> Welcome to the WhatABook, Part 2 App!</h1>
+            <div class="assign-content">
+                <div class="card">
+                    <div class="card-title">
+                        <!-- card-title with a text value of “Book Listing” -->
+                        Book Listing
+                    </div>
+                    <div class="card-content" id="bookList">
+
+                    </div>
+                </div>
+                <div class="rtnhome-anchor">
+                    <!-- Return to Home link -->
+                    <a id="return-home" href="../index.html">Return</a>
+                </div>
+            </div>
+        </div>
+        <div class="assign-container">
+            <div class="assign-content">
+                <div class="card">
+                    <!-- card-title with a text value of “Selected Book” -->
+                    <div class="card-title">
+                        Selected Book
+                    </div>
+                    <div class="card-content assign-results-text" id="selectedBook">
+                        <!-- Results go here! -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module">
+
+            // import statement for the HttpClient class
+            import {
+                HttpClient
+            } from "./http-client.js";
+
+            // InstantiateB new HttpClient object
+            // assign to a variable named http
+            let http = new HttpClient();
+            let book = {};
+
+            // Create a variable named isbns
+            // assign it an array of ISBN numbers
+            let isbns = [
+                '9780345339683',
+                '0345339681',
+                '0261103571',
+                '9780593099322',
+                '9780261102361',
+                '9780261102378',
+                '9780590302715',
+                '9780316769532',
+                '9780743273565',
+                '9780590405959'
+            ];
+
+            // Create an object literal named params with the following key/value pairs
+            const params = {
+                "bibkeys": `ISBN: ${isbns.join(",")}`,
+                "format": "json",
+                "jscmd": "details"
+            };
+
+            // Call the http.get function and supply it
+            // with open library URL and params objects
+            http.get("https://openlibrary.org/api/books", params).then(res => {
+                console.log(res);
+
+                // Call the buildHtmlString() function 
+                // supply the res object and the string value “table”
+                // bind results to the bookListing div
+                document.getElementById("bookList").innerHTML = buildHtmlString(res, "table");
+                book = res;
+
+                // Call the addIsbnClickEvents() function
+                addISBNClickEvents();
+            })
+
+                // Add a catch() statement arrow function for error 
+                // write error to the console using the console.log() API
+                .catch(e => {
+                    console.log(e);
+                });
+
+
+            // Create a function named getBook() that accepts an event object
+            function getBook(e) {
+                e.preventDefault();
+
+                // Create a variable named self and assign it the value this
+                let self = this;
+
+                // Create a variable named isbn
+                // assign it the innerText of the self variable
+                let isbn = self.innerText;
+
+                // Build a new params object literal
+                let obj = {};
+                obj[isbn] = book[isbn];
+                document.getElementById("selectedBook").innerHTML = buildHtmlString(obj);
+            }
+
+            // Create a function named buildHtmlString 
+            // with two parameters: res and format.
+            function buildHtmlString(res, format) {
+
+                // Create a variable named tableString
+                // supply it with an HTML string for a table header
+                let tableString = "<table class='table table-hover' id='book1List'><thead id='bookTable'><tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr></thead><tbody>";
+
+                // Create a variable named ulString
+                // set it to an empty string
+                let ulString = '';
+
+                // Using a for…in iterate over the res parameter
+                // and append the objects to the ulString and tableString variables
+                for (let key in res) {
+
+                    ulString += `<ul style="list-style-type: none;">`;
+
+                    if (res.hasOwnProperty(key)) {
+                        let authors = [];
+                        if (res[key].details.authors) {
+                            authors = res[key].details.authors.map(function (author) {
+                                return author.name;
+                            });
+                        }
+                        let bookDetails = res[key].details;
+                        let book = {
+                            isbn: bookDetails.isbn_13 ? bookDetails.isbn_13 : bookDetails.isbn_10,
+                            title: bookDetails.title,
+                            description: bookDetails.subtitle ? bookDetails.subtitle : "N/A",
+                            pages: bookDetails.number_of_pages ? bookDetails.number_of_pages : "N/A",
+                            authors: authors.join(", ")
+                        };
+
+                        ulString += `<li><b>ISBN:</b> ${book.isbn}</li><li><b>Title:</b> ${book.title}</li><li><b>Description:</b> ${book.description}</li>
+                    <li><b>Pages:</b> ${book.pages}</li><li><b>Authors:</b> ${book.authors}</li>`;
+
+                        tableString += `<tr><td><a href="#" class="isbn-link">${book.isbn}</a></td><td>${book.title}</td><td>${book.description}</td>
+                        <td>${book.pages}</td><td>${book.authors}</td></tr>`;
+                    }
+
+
+                }
+                ulString += "</ul>";
+                tableString += "</table>";
+
+                //  If the format variable is a “table” 
+                // return tableString variable else return the ulString variable. 
+                return (format === "table") ? tableString : ulString;
+            }
+
+
+            function addISBNClickEvents() {
+                let links = document.getElementsByClassName("isbn-link");
+                Array.from(links).forEach(element => {
+                    element.addEventListener("click", getBook);
+                });
+            }
+        </script>
+    </body>
+
+</html>
